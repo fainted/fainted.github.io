@@ -70,8 +70,8 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-# scheme: Muse
-scheme: Mist
+scheme: Muse
+# scheme: Mist
 # scheme: Pisces
 
 
@@ -93,7 +93,7 @@ font:
   global:
     # external: true will load this font family from host.
     external: true
-    family: Lato
+    family: Monaco
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6)
   # Fallback to `global` font settings.
@@ -261,8 +261,8 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-# highlight_theme: night
-highlight_theme: normal
+highlight_theme: night eighties
+# highlight_theme: normal
 
 
 # ---------------------------------------------------------------

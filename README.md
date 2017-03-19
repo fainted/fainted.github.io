@@ -3,7 +3,7 @@
 ## 1. Hexo 初始化
 使用Hexo首先需安装[nodejs && npm][https://nodejs.org/en/download/]
 ```shell
-npm install -g hexo-cli
+npm install -g hexo-cli --save
 npm install
 npm install hexo-deployer-git install hexo-server --save
 ```
