@@ -98,7 +98,7 @@
 示例代码的执行go的注释化文档支持添加示例代码，比如下图strconv.Atoi的例子
 点击Run将运行看到的示例代码，整个过程是这样的：1. POST http://godoc-server/">
 <meta property="og:image" content="http://yoursite.com/2017/03/19/godoc的一些优化/strconv-Atoi-example.png">
-<meta property="og:updated_time" content="2017-03-19T07:50:09.270Z">
+<meta property="og:updated_time" content="2017-03-20T08:24:04.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="godoc的一些优化">
 <meta name="twitter:description" content="前言一般安装golang会附带godoc。命令行下执行godoc -play -http :8686，然后在浏览器访问http://localhost:8686。可以看到一个同go blog“一样”的页面
@@ -293,7 +293,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T02:34:04+00:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T10:34:04+08:00">
                 2017-03-19
               </time>
             
@@ -333,7 +333,7 @@
 <h2 id="示例代码的执行"><a href="#示例代码的执行" class="headerlink" title="示例代码的执行"></a>示例代码的执行</h2><p>go的注释化文档支持添加示例代码，比如下图<strong>strconv.Atoi</strong>的例子<br><img src="/2017/03/19/godoc的一些优化/strconv-Atoi-example.png" alt="strconv-Atoi-example.png" title=""></p>
 <p>点击Run将运行看到的示例代码，整个过程是这样的：<br><em>1. POST <a href="http://godoc-server/compile" target="_blank" rel="external">http://godoc-server/compile</a></em><br><em>2. godc-server将请求转发至<a href="https://play.golang.org/compile" target="_blank" rel="external">https://play.golang.org/compile</a></em><br><em>3. 返回响应</em></p>
 <p>由于最终会访问官方playground。于是会有以下原因导致示例无法运行。<br><em>1. 代码写错了</em><br><em>2. 引入了第三方包（github或公司服务器），或自己写的本地包</em><br><em>3. 国情</em></p>
-<p>当然，只要能将 <em>/comile</em> 接口改为本地编译运行就可以避免后两种情况。<br>研究了一下<a href="https://github.com/golang/tools" target="_blank" rel="external">go-tools</a>/<a href="https://github.com/golang/playground" target="_blank" rel="external">go-playground</a><br>对源码进行一下“组装”，就可以将示例在本地运行了。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/fainted/tools.git</div><div class="line">gopm get -g golang.org/x/tools</div><div class="line"></div><div class="line"><span class="built_in">cd</span> tools/cmd/godoc &amp;&amp; go build</div><div class="line">cp godoc $(<span class="built_in">which</span> godoc) <span class="comment"># 替换当前godoc程序</span></div><div class="line"><span class="built_in">cd</span> -</div><div class="line">rm -rf tools</div></pre></td></tr></table></figure></p>
+<p>当然，只要能将 <em>/comile</em> 接口改为本地编译运行就可以避免前两种情况。<br>研究了一下<a href="https://github.com/golang/tools" target="_blank" rel="external">go-tools</a>/<a href="https://github.com/golang/playground" target="_blank" rel="external">go-playground</a><br>对源码进行一下“组装”，就可以将示例在本地运行了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/fainted/tools.git</div><div class="line">gopm get -g golang.org/x/tools</div><div class="line"></div><div class="line"><span class="built_in">cd</span> tools/cmd/godoc &amp;&amp; go build</div><div class="line">cp godoc $(<span class="built_in">which</span> godoc) <span class="comment"># 替换当前godoc程序</span></div><div class="line"><span class="built_in">cd</span> -</div><div class="line">rm -rf tools</div></pre></td></tr></table></figure></p>
 
       
     </div>
