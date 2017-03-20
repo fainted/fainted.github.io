@@ -25,10 +25,10 @@ go的注释化文档支持添加示例代码，比如下图**strconv.Atoi**的�
 *2. 引入了第三方包（github或公司服务器），或自己写的本地包*
 *3. 国情*
 
-当然，只要能将 */comile* 接口改为本地编译运行就可以避免后两种情况。
+当然，只要能将 */comile* 接口改为本地编译运行就可以避免前两种情况。
 研究了一下[go-tools](https://github.com/golang/tools)/[go-playground](https://github.com/golang/playground)
 对源码进行一下“组装”，就可以将示例在本地运行了。
-```sh
+```bash
 git clone https://github.com/fainted/tools.git
 gopm get -g golang.org/x/tools
 
